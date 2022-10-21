@@ -1,3 +1,3 @@
-## Yoriqulov blog
+## Markdown blog
 
-`` About me `` 
+`` About programming `` 
