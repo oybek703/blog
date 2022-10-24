@@ -18,7 +18,7 @@ const Home: React.FC<IHomeProps> = ({ posts }) => {
 					<Posts slug={post.slug} key={index} post={post.frontMatter} />
 				))}
 				<Link href={Routes.blog}>
-					<a className=""></a>
+					<a className="bg-gray-900 w-28 text-white text-center rounded p-2 font-bold">All Posts</a>
 				</Link>
 			</div>
 		</Layout>
@@ -29,14 +29,19 @@ const Home: React.FC<IHomeProps> = ({ posts }) => {
 // @ts-ignore
 export const getStaticProps: GetStaticProps<IHomeProps> = () => {
 	const postsFolder = 'posts'
-	const posts = readdirSync(postsFolder).map(filename => {
-		const slug = filename.replace('.md', '')
-		const { data: frontMatter } = matter(readFileSync(join(postsFolder, filename)))
-		return {
-			slug,
-			frontMatter
-		}
-	})
+	const posts = readdirSync(postsFolder)
+		.map(filename => {
+			const slug = filename.replace('.md', '')
+			const { data: frontMatter } = matter(readFileSync(join(postsFolder, filename)))
+			return {
+				slug,
+				frontMatter
+			}
+		})
+		.slice(0, 6)
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date))
 	return {
 		props: {
 			posts

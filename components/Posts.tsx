@@ -25,7 +25,9 @@ const Posts: FC<IPostProps> = ({ post, slug }) => {
 			</div>
 			<div className="mt-2 flex justify-between items-center">
 				<Link href={`${Routes.blog}/${slug}`}>
-					<a className="bg-blue-600 text-white font-bold px-2 py-1 rounded hover:bg-blue-900">Read more</a>
+					<a className="bg-blue-600 text-white whitespace-nowrap font-bold px-2 py-1 rounded hover:bg-blue-900">
+						Read more
+					</a>
 				</Link>
 				<div className="flex items-center">
 					{/* eslint-disable-next-line @next/next/no-img-element */}

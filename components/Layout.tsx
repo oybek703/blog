@@ -10,7 +10,7 @@ interface ILayoutProps {
 
 const Layout: FC<PropsWithChildren<ILayoutProps>> = ({ title, children, keywords, description }) => {
 	return (
-		<div>
+		<div className="min-w-full">
 			<Head>
 				<title>{title}</title>
 				<meta name="keywords" content={keywords} />
