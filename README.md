@@ -1,3 +1,3 @@
 ## Markdown blog
 
-`` About programming `` 
+**About programming** 
