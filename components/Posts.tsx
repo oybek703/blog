@@ -2,8 +2,8 @@ import { FC } from 'react'
 import { IPost } from '@interfaces/post.interface'
 import Image from 'next/image'
 import Link from 'next/link'
-import CategoryLabel, { Colors } from '@components/CategoryLabel'
-import { Routes } from '@commons/index'
+import CategoryLabel from '@components/CategoryLabel'
+import { CategoryTypes, Routes } from '@commons/index'
 
 interface IPostProps {
 	post: IPost
@@ -16,7 +16,7 @@ const Posts: FC<IPostProps> = ({ post, slug }) => {
 			<Image className="mb-4 rounded" src={post.cover_image} width={600} height={420} alt={post.title} />
 			<div className="flex justify-between items-center">
 				<span className="font-light text-gray-600">{post.date}</span>
-				<CategoryLabel category={post.category as keyof typeof Colors} />
+				<CategoryLabel category={post.category as CategoryTypes} />
 			</div>
 			<div className="mt-2">
 				<Link href={`${Routes.blog}/${slug}`}>

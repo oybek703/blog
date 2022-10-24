@@ -5,3 +5,13 @@ export enum Routes {
 }
 
 export const postsFolder = 'posts'
+
+export enum Colors {
+	JavaScript = 'yellow',
+	CSS = 'blue',
+	Python = 'green',
+	PHP = 'gray',
+	Ruby = 'red'
+}
+
+export type CategoryTypes = keyof typeof Colors

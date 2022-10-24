@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps<IHomeProps> = () => {
 	const posts = readdirSync(postsFolder)
 		.map(filename => {
 			const slug = filename.replace('.md', '')
-			const { data: frontMatter, content } = matter(readFileSync(join(postsFolder, filename), 'utf-8'))
+			const { data: frontMatter } = matter(readFileSync(join(postsFolder, filename), 'utf-8'))
 			return {
 				slug,
 				frontMatter
