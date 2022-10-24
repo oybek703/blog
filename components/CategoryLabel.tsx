@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import { Routes } from '@components/Header'
+import { Routes } from '@commons/index'
 
 export enum Colors {
 	JavaScript = 'yellow',

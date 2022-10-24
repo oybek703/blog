@@ -2,8 +2,8 @@ import { FC } from 'react'
 import { IPost } from '@interfaces/post.interface'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Routes } from '@components/Header'
 import CategoryLabel, { Colors } from '@components/CategoryLabel'
+import { Routes } from '@commons/index'
 
 interface IPostProps {
 	post: IPost

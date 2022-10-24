@@ -1,12 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-
-export enum Routes {
-	home = '/',
-	blog = '/blog',
-	about = '/about'
-}
+import { Routes } from '@commons/index'
 
 const Header: FC = () => {
 	return (

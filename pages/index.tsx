@@ -6,8 +6,8 @@ import matter from 'gray-matter'
 import { join } from 'path'
 import { IPost } from '@interfaces/post.interface'
 import Link from 'next/link'
-import { Routes } from '@components/Header'
 import Posts from '@components/Posts'
+import { postsFolder, Routes } from '@commons/index'
 
 const Home: React.FC<IHomeProps> = ({ posts }) => {
 	return (
@@ -30,11 +30,10 @@ const Home: React.FC<IHomeProps> = ({ posts }) => {
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export const getStaticProps: GetStaticProps<IHomeProps> = () => {
-	const postsFolder = 'posts'
 	const posts = readdirSync(postsFolder)
 		.map(filename => {
 			const slug = filename.replace('.md', '')
-			const { data: frontMatter } = matter(readFileSync(join(postsFolder, filename)))
+			const { data: frontMatter, content } = matter(readFileSync(join(postsFolder, filename), 'utf-8'))
 			return {
 				slug,
 				frontMatter
