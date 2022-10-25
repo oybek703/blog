@@ -10,7 +10,7 @@ import Link from 'next/link'
 import CategoryLabel from '@components/CategoryLabel'
 import { marked } from 'marked'
 
-const SinglePost: FC<ISinglePostProps> = ({ slug, frontMatter, content }) => {
+const SinglePost: FC<ISinglePostProps> = ({ frontMatter, content }) => {
 	return (
 		<Layout title={frontMatter.title}>
 			<Link href={Routes.blog}>
@@ -56,7 +56,6 @@ export const getStaticProps: GetServerSideProps<ISinglePostProps> = async ({ par
 	const { content, data: frontMatter } = matter(readFileSync(join(postsFolder, `${params.slug}.md`), 'utf-8'))
 	return {
 		props: {
-			slug: params.slug,
 			frontMatter,
 			content
 		}
@@ -64,7 +63,6 @@ export const getStaticProps: GetServerSideProps<ISinglePostProps> = async ({ par
 }
 
 interface ISinglePostProps {
-	slug: string | unknown
 	frontMatter: IPost
 	content: string
 }

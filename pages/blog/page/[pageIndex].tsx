@@ -63,8 +63,8 @@ export const getStaticProps: GetStaticProps<IHomeProps> = ({ params }) => {
 	const page = parseInt((params && params.pageIndex) as string) || 1
 	const pageIndex = page - 1
 	const numPages = Math.ceil(posts.length / POST_PER_PAGE)
-	posts = posts.slice(pageIndex * POST_PER_PAGE, (pageIndex + 1) * POST_PER_PAGE)
 	const categories = Array.from(new Set(posts.map(({ frontMatter }) => frontMatter.category)))
+	posts = posts.slice(pageIndex * POST_PER_PAGE, (pageIndex + 1) * POST_PER_PAGE)
 	return {
 		props: {
 			posts,
