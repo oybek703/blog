@@ -18,10 +18,12 @@
 
 # production
 /build
+scripts/data.js
 
 # misc
 .DS_Store
 *.pem
+.husky
 
 # debug
 npm-debug.log*

@@ -5,7 +5,7 @@ import React from 'react'
 import matter from 'gray-matter'
 import { join } from 'path'
 import { IPost } from '@interfaces/post.interface'
-import Posts from '@components/Posts'
+import Post from '@components/Post'
 import { CategoryTypes, postsFolder } from '@commons/index'
 import { POST_PER_PAGE } from '@config/index'
 import Pagination from '@components/Pagination'
@@ -19,7 +19,7 @@ const BlogPage: React.FC<IHomeProps> = ({ posts, page, numPages, categories }) =
 					<h1 className="text-5xl border-b-4 p-5 font-bold">Blog</h1>
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
 						{posts.map((post, index) => (
-							<Posts slug={post.slug} key={index} post={post.frontMatter} />
+							<Post slug={post.slug} key={index} post={post.frontMatter} />
 						))}
 					</div>
 					<Pagination page={page} numPages={numPages} />

@@ -5,6 +5,7 @@ export enum Routes {
 }
 
 export const postsFolder = 'posts'
+export const cacheFolder = 'cache'
 
 export enum Colors {
 	JavaScript = 'yellow',

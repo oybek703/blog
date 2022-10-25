@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { FC, PropsWithChildren } from 'react'
 import Header from '@components/Header'
+import Search from '@components/Search'
 
 interface ILayoutProps {
 	title?: string
@@ -18,6 +19,7 @@ const Layout: FC<PropsWithChildren<ILayoutProps>> = ({ title, children, keywords
 				<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 			</Head>
 			<Header />
+			<Search />
 			<main className="container mx-auto my-7">{children}</main>
 		</div>
 	)

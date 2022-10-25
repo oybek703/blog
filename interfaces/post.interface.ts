@@ -6,4 +6,5 @@ export interface IPost {
 	date: string
 	excerpt: string
 	title: string
+	slug?: string
 }
