@@ -9,7 +9,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { q } = req.query
 	let posts: IPost[]
 	if (process.env.NODE_ENV === 'production') {
-		posts = JSON.parse(readFileSync(join(cacheFolder, 'data.json'), 'utf-8'))
+		// eslint-disable-next-line @typescript-eslint/no-var-requires
+		posts = require('../../cache/data').posts
 	} else {
 		posts = readdirSync(postsFolder).map(filename => {
 			const slug = filename.replace('.md', '')

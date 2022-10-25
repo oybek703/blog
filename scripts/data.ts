@@ -10,7 +10,7 @@ function postData() {
 		Object.assign(frontMatter, { slug })
 		return frontMatter
 	})
-	return JSON.stringify(posts)
+	return `export const posts = ${JSON.stringify(posts)}`
 }
 
 try {
@@ -19,7 +19,7 @@ try {
 	mkdirSync('cache')
 }
 
-writeFile(join('cache', 'data.json'), postData(), function (err) {
+writeFile(join('cache', 'data.js'), postData(), function (err) {
 	if (err) console.log(err.message)
 	console.log('Posts cached!')
 })
