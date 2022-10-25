@@ -15,10 +15,10 @@ const Header: FC = () => {
 				</Link>
 				<nav className="flex  flex-wrap md:w-4/5 items-center justify-end text-base md:ml-auto">
 					<Link href={Routes.blog}>
-						<a className="mx-5 cursor-pointer uppercase hover:text-indigo-300">Blog</a>
+						<a className="mx-5 cursor-pointer text-white uppercase hover:text-indigo-300 hover:font-bold">Blog</a>
 					</Link>
 					<Link href={Routes.about}>
-						<a className="mx-5 cursor-pointer uppercase hover:text-indigo-300">About</a>
+						<a className="mx-5 cursor-pointer text-white uppercase hover:text-indigo-300 hover:font-bold">About</a>
 					</Link>
 				</nav>
 			</div>
