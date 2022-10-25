@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { readdirSync, readFileSync } from 'fs'
-import { cacheFolder, postsFolder } from '@commons/index'
+import { postsFolder } from '@commons/index'
 import matter from 'gray-matter'
 import { join } from 'path'
 import { IPost } from '@interfaces/post.interface'

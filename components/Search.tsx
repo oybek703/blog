@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaSpinner } from 'react-icons/fa'
 import { IPost } from '@interfaces/post.interface'
 import SearchResults from '@components/SearchResults'
 import { useRouter } from 'next/router'
 
 const Search = () => {
+	const [loading, setLoading] = useState<boolean>(false)
 	const [term, setTerm] = useState<string>('')
 	const [searchResults, setSearchResults] = useState<IPost[]>([])
 
@@ -19,9 +20,11 @@ const Search = () => {
 	async function fetchResults() {
 		try {
 			if (term) {
+				setLoading(true)
 				const response = await fetch(`/api/search?q=${term}`)
 				const results: IPost[] = await response.json()
 				setSearchResults(results)
+				setLoading(false)
 			}
 		} catch (e: unknown) {
 			if (e instanceof Error) {
@@ -51,7 +54,11 @@ const Search = () => {
 							placeholder="Search posts..."
 							className="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-72"
 						/>
-						<FaSearch className="absolute cursor-pointer top-0 right-0 text-black mt-3 mr-4" />
+						{loading ? (
+							<FaSpinner className="absolute loaderIcon cursor-pointer top-0 right-0 text-black mt-3 mr-4" />
+						) : (
+							<FaSearch className="absolute cursor-pointer top-0 right-0 text-black mt-3 mr-4" />
+						)}
 					</form>
 				</div>
 			</div>
